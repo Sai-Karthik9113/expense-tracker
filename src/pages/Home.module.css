@@ -1,0 +1,43 @@
+.parentContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.77);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: rgba(239, 239, 239, 0.85);
+    border-radius: 15px;
+    padding: 34px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90%; /* Make modal responsive */
+    width: 40%;
+}
+
+@media (max-width: 1200px) {
+    .modalContent {
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .modalContent {
+        width: 60%;
+    }
+}
+@media (max-width: 480px) {
+    .modalContent {
+        width: 80%;
+    }
+}

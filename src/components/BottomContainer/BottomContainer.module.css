@@ -1,0 +1,33 @@
+.bottomChildContainer {
+    display: flex;
+    margin: 36px 0px;
+    gap: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.box70 {
+    flex: 0 0 60%;
+}
+
+.box30 {
+    flex: 0 0 36.5%;
+}
+
+.bottomChildContainer h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+    .bottomChildContainer {
+        flex-direction: column;
+        margin: 36px 0px;
+    }
+    .box70, .box30 {
+        flex: 0 0 0;
+    }
+    .box30 {
+        margin-top: 50px;
+    }
+}

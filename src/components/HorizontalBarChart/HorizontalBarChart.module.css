@@ -1,0 +1,34 @@
+.barChart {
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    padding: 27px 0;
+    margin-top: 10px;
+    border-radius: 15px;
+    height: 85%;
+    position: relative;
+}
+
+.noDataMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #9B9B9B;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.addExpenseButton { /* Space between the text and the button */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove border if any */
+    border-radius: 5px; /* Adjust border radius for button */
+}
+
+@media (max-width: 1024px) {
+    .barChart {
+        height: fit-content;
+        padding: 20px;
+    }
+}

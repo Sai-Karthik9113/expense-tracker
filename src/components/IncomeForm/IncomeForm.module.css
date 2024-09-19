@@ -1,0 +1,45 @@
+.container h1 {
+    font-weight: 700;
+    font-size: 30px;
+    color: black ;
+}
+.container form {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+}
+input {
+    border: 1px solid #ccc;
+    background: linear-gradient(0deg, #FBFBFB, #FBFBFB);
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);
+    color: #919191;
+    border-radius: 15px;
+    font-size: 16px;
+    height: 51px;
+    width: 60%;
+    padding-left: 12px !important;
+    font-family: 'Open Sans', sans-serif;
+}
+.formRow {
+    display: flex;
+    gap: 10px;
+    width: 80%;
+}
+
+@media (max-width: 1200px) {
+    .container form {
+        flex-direction: column;
+    }
+    .formRow, input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .formRow {
+        flex-direction: column;
+    }
+    .formRow:last-child {
+        margin-top: 10px;
+    }
+}

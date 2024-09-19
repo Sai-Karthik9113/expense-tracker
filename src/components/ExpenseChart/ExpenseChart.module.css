@@ -1,0 +1,18 @@
+.noDataMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #888888;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+    }
+    .chartContainer {
+        margin-right: 50px; /* Add some gap between the chart and the legend */
+    }
+}
