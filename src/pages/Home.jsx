@@ -13,7 +13,7 @@
         const savedExpense = localStorage.getItem('expense');
         const [balance, setBalance] = useState(() => {
             const savedBalance = localStorage.getItem('balance');
-            return savedBalance ? parseFloat(savedBalance) : 5000;
+            return savedBalance && !isNaN(savedBalance) ? parseFloat(savedBalance) : 5000;
         });
         const [expense, setExpense] = useState(() => {
             return savedExpense ? JSON.parse(savedExpense) : [];
@@ -48,12 +48,16 @@
                 localStorage.setItem('expense', JSON.stringify([]));
             }
             const balanceAvailable = localStorage.getItem('balance');
-            setBalance(parseFloat(balanceAvailable));
+            if (balanceAvailable === null) {
+                localStorage.setItem('balance', JSON.stringify(5000));
+            }
+            console.log('Saved balance from localStorage:', balanceAvailable);
+            setBalance(balanceAvailable ? parseFloat(balanceAvailable) : 5000);
             setExpense(spentIncome ? JSON.parse(spentIncome) : []);
         }, []);
 
         useEffect(() => {
-            localStorage.setItem('balance', balance.toString());
+            localStorage.setItem('balance', JSON.stringify(balance));
         }, [balance]);
 
         useEffect(() => {
