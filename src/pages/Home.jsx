@@ -89,14 +89,14 @@
             setExpense((prevExpense) => {
                 const newExpenses = [...prevExpense, addedExpense];
                 if (addedExpense.price <= balance) {
-                    setIsExpenseFormVisible(false);
                     setBalance((prevBalance) => prevBalance - addedExpense.price);
                     return newExpenses;
                 } else {
-                    enqueueSnackbar('The expense amount exceeds your current balance. Please adjust the amount to be within your available balance.', {variant: 'error'});
+                    enqueueSnackbar('The expense amount exceeds your current balance. Please adjust the amount to be within your available balance or add more balance.', {variant: 'error'});
                     return prevExpense;
                 }
             });
+            setIsExpenseFormVisible(false);
         }
 
         const handleUpdateExpense = (updatedExpense) => {
@@ -105,12 +105,16 @@
 
                 const difference = updatedExpense.price - oldExpense.price;
 
-                const updatedExpenses = prevExpense.map(exp => 
-                    exp.id === updatedExpense.id ? updatedExpense : exp
-                );
-
-                setBalance(prevBalance => prevBalance - difference);
-                return updatedExpenses;
+                if (difference <= balance) {
+                    const updatedExpenses = prevExpense.map(exp => 
+                        exp.id === updatedExpense.id ? updatedExpense : exp
+                    );
+                    setBalance(prevBalance => prevBalance - difference);
+                    return updatedExpenses;
+                } else {
+                    enqueueSnackbar('The expense amount exceeds your current balance. Please adjust the amount to be within your available balance or add more balance.', {variant: 'error'});
+                    return prevExpense;
+                }
             });
             setIsExpenseFormVisible(false);
         }
